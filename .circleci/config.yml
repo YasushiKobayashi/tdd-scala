@@ -13,8 +13,8 @@ jobs:
           key: sbt-cache
       - run: rm -f ensime.sbt
       - run: sbt clean compile
-      - run: sbt coverage test coverageReport scalastyle scalafmtSbtCheck
-      - run: cp target/scala-2.12/scoverage-report/index.html $CIRCLE_TEST_ARTIFACTS
+      - run: sbt coverage test coverageReport coveralls scalastyle scalafmtSbtCheck
+      - run: cp target/scala-2.12/scoverage-report/* $CIRCLE_TEST_ARTIFACTS
       - store_artifacts:
           path: /tmp/artifacts
       - save_cache:
