@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    working_directory: /root
+    docker:
+      - image: hseeberger/scala-sbt:8u212_2.12.8_1.2.8
+        environment:
+          CIRCLE_TEST_ARTIFACTS: /tmp/artifacts
+
+    steps:
+      - checkout
+      - run: sbt clean coverage test coverageReport scalastyle scalafmtSbtCheck
+      - run: cp target/scala-2.12/scoverage-report/index.html $CIRCLE_TEST_ARTIFACTS
+      - store_artifacts:
+          path: /tmp/artifacts
+
