@@ -11,6 +11,7 @@ jobs:
       - checkout
       - restore_cache:
           key: sbt-cache
+      - run: mkdir -p $CIRCLE_TEST_ARTIFACTS
       - run: rm -f ensime.sbt
       - run: sbt clean compile
       - run: sbt coverage test coverageReport scalastyle scalafmtSbtCheck
