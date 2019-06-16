@@ -16,7 +16,7 @@ jobs:
       - run: sbt clean compile
       - run: sbt coverage test coverageReport scalastyle scalafmtSbtCheck
       - run: bash <(curl -s https://codecov.io/bash)
-      - run: cp target/scala-2.12/scoverage-report/* $CIRCLE_TEST_ARTIFACTS
+      - run: cp -r target/scala-2.12/scoverage-report/* $CIRCLE_TEST_ARTIFACTS
       - store_artifacts:
           path: /tmp/artifacts
       - save_cache:
