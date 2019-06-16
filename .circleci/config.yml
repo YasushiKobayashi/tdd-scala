@@ -1,14 +1,14 @@
 version: 2
 jobs:
   build:
-    working_directory: /work
+    working_directory: ~/work
     docker:
       - image: hseeberger/scala-sbt:8u212_2.12.8_1.2.8
         environment:
           CIRCLE_TEST_ARTIFACTS: /tmp/artifacts
 
     steps:
-      - run: mkdir /work
+      - run: mkdir ~/work
       - checkout
       - restore_cache:
           key: sbt-cache
