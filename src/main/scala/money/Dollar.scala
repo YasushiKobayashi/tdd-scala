@@ -1,6 +1,6 @@
 package money
 
-class Dollar(val ammount: Int) {
+class Dollar(private val ammount: Int) {
   def times(multiplier: Int) = new Dollar(ammount * multiplier)
 
   override def equals(obj: Any): Boolean = {
