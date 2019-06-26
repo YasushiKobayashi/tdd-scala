@@ -6,9 +6,10 @@ class MoneySpec extends FlatSpec with DiagrammedAssertions {
   it should "multiplication" in {
     val five = new Dollar(5)
     var product = five.times(2)
-    assert(10 === product.ammount)
+    assert(five.ammount == 5)
+    assert(product.ammount == 10)
     product = five.times(3)
-    assert(15 === product.ammount)
+    assert(product.ammount == 15)
   }
 
   it should "equality" in {
